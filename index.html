@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Scam Link</title>
+    <style>
+        body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; background: #000; }
+        iframe { width: 100%; height: 100%; border: none; }
+    </style>
+</head>
+<body>
+
+    <audio id="song" loop>
+        <source src="love.mp3" type="audio/mpeg">
+    </audio>
+
+    <div id="overlay" style="position:fixed; top:0; left:0; width:100%; height:100%; z-index:999; cursor:pointer;"></div>
+
+    <iframe src="home.html"></iframe>
+
+    <script>
+        const song = document.getElementById("song");
+        const overlay = document.getElementById("overlay");
+
+        overlay.addEventListener('click', () => {
+            song.play().then(() => {
+                console.log("Music started!");
+                overlay.style.display = "none"; // Hide overlay so you can click the site
+            }).catch(error => {
+                console.log("Playback failed:", error);
+            });
+        });
+    </script>
+
+</body>
+</html>
