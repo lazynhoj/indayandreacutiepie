@@ -1,0 +1,358 @@
+* {
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+  overflow-x: hidden;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#outside-text {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  font-weight: 700;
+  color: #e63946;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  animation: fadeIn 2s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.center h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.center h2 {
+  font-size: 2em;
+  margin-bottom: 30px;
+  font-weight: 700;
+  background: linear-gradient(45deg, #ff6b9d, #c44569);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+.fade-in {
+  animation: fade 1.5s ease;
+}
+
+@keyframes fade {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+/* Envelope */
+.envelope {
+  width: 200px;
+  height: 120px;
+  background: #e63946;
+  cursor: pointer;
+  position: relative;
+  animation: pulse 1.5s infinite;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  border-radius: 5px;
+  border: 2px solid #d62828;
+  transform: perspective(600px) rotateX(10deg);
+}
+
+.envelope::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 30%, rgba(255,255,255,0.1) 70%, transparent 70%);
+  pointer-events: none;
+}
+
+@keyframes pulse {
+  0% {transform: scale(1);}
+  50% {transform: scale(1.05);}
+  100% {transform: scale(1);}
+}
+
+.letter {
+  display: none;
+  position: absolute;
+  top: -80px;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  font-size: 16px;
+  text-align: center;
+}
+
+.letter p {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #e63946;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+/* Buttons */
+.btn-group {
+  margin-top: 20px;
+}
+
+button {
+  padding: 12px 25px;
+  margin: 10px;
+  font-size: 18px;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  background: linear-gradient(45deg, #ffafcc, #ffc8dd);
+  color: #333;
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+}
+
+button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  transition: left 0.5s;
+}
+
+button:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+  background: linear-gradient(45deg, #ffc8dd, #ffafcc);
+}
+
+button:hover::before {
+  left: 100%;
+}
+
+button:active {
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Pages vibe */
+.sad {
+  background: linear-gradient(#1f1f1f, #3a3a3a);
+  color: gray;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.sad::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+  animation: rain 10s linear infinite;
+}
+
+@keyframes rain {
+  0% { transform: translateY(-100px); }
+  100% { transform: translateY(100vh); }
+}
+
+.sad h1 {
+  animation: sadShake 2s infinite;
+  font-size: 5em;
+  text-shadow: 0 0 10px rgba(255,255,255,0.2);
+}
+
+@keyframes sadShake {
+  0%, 100% {transform: translateX(0);}
+  25% {transform: translateX(-5px);}
+  75% {transform: translateX(5px);}
+}
+
+.sad p {
+  font-size: 1.5em;
+  margin-top: 20px;
+  opacity: 0.8;
+  text-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
+#broken-heart {
+  font-size: 1.2em;
+  margin-top: 30px;
+  opacity: 0.6;
+  color: #666;
+  text-shadow: 0 0 3px rgba(0,0,0,0.3);
+  animation: fadeInSlow 3s ease-in;
+}
+
+@keyframes fadeInSlow {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 0.6; transform: translateY(0); }
+}
+
+.happy {
+  background: linear-gradient(45deg, #ffafcc, #ffc8dd, #bde0fe);
+  animation: happyGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes happyGlow {
+  from {filter: brightness(1);}
+  to {filter: brightness(1.1);}
+}
+
+.yes {
+  background: linear-gradient(#ff4d6d, #ff8fa3);
+  color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .center h1 {
+    font-size: 2em;
+  }
+  
+  .center h2 {
+    font-size: 1.5em;
+  }
+  
+  #outside-text {
+    font-size: 1.2em;
+  }
+  
+  .envelope {
+    width: 150px;
+    height: 90px;
+  }
+  
+  .letter {
+    padding: 15px;
+    font-size: 14px;
+  }
+  
+  .letter p {
+    font-size: 16px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+  
+  .sad h1 {
+    font-size: 3em;
+  }
+  
+  .sad p {
+    font-size: 1.2em;
+  }
+  
+  #broken-heart {
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 480px) {
+  .center h1 {
+    font-size: 1.5em;
+  }
+  
+  .center h2 {
+    font-size: 1.2em;
+  }
+  
+  #outside-text {
+    font-size: 1em;
+  }
+  
+  .envelope {
+    width: 120px;
+    height: 70px;
+  }
+  
+  button {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+  
+  .sad h1 {
+    font-size: 2.5em;
+  }
+  /* Floating Hearts Container */
+.heart-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1; /* Keeps them behind text and buttons */
+  overflow: hidden;
+}
+
+.heart {
+  position: absolute;
+  background-color: #ff4d6d;
+  width: 15px;
+  height: 15px;
+  transform: rotate(45deg);
+  opacity: 0.6;
+  animation: floatUp linear infinite;
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background-color: #ff4d6d;
+  border-radius: 50%;
+}
+
+.heart::before { top: -8px; left: 0; }
+.heart::after { left: -8px; top: 0; }
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(100vh) rotate(45deg) scale(0);
+    opacity: 0;
+  }
+  20% { opacity: 0.7; }
+  100% {
+    transform: translateY(-10vh) rotate(405deg) scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* Overall Romantic Refinement */
+body {
+  transition: background 1s ease-in-out;
+}
+
+h1, h2 {
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 1px;
+}
+}
